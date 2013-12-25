@@ -31,7 +31,11 @@ NSString *const GPActivityTwitter = @"GPActivityTwitter";
     self = [super init];
     if (self) {
         self.title = NSLocalizedStringFromTable(@"ACTIVITY_TWITTER", @"GPActivityViewController", @"Twitter");
-        self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareTwitter"];
+        if ([[[UIDevice currentDevice] systemVersion] intValue] < 7) {
+            self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareTwitter"];
+        } else {
+            self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareTwitter7"];
+        }
     }
 
     return self;

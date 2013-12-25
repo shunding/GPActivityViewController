@@ -32,7 +32,11 @@ NSString *const GPActivityFacebook = @"GPActivityFacebook";
     self = [super init];
     if (self) {
         self.title = NSLocalizedStringFromTable(@"ACTIVITY_FACEBOOK", @"GPActivityViewController", @"Facebook");
-        self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareFacebook"];
+        if ([[[UIDevice currentDevice] systemVersion] intValue] < 7) {
+            self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareFacebook"];
+        } else {
+            self.image = [UIImage imageNamed:@"GPActivityViewController.bundle/shareFacebook7"];
+        }
     }
 
     return self;
@@ -59,9 +63,6 @@ NSString *const GPActivityFacebook = @"GPActivityFacebook";
     if (image) {
         [composeController addImage:image];
     }
-    
-//    UIViewController *presentingController = [UIApplication sharedApplication].delegate.window.rootViewController;
-//    presentingController.modalPresentationStyle = UIModalPresentationCurrentContext;
     
     typeof(self) __weak weakSelf = self;
     typeof(composeController) __weak weakComposer = composeController;
