@@ -60,8 +60,8 @@ NSString *const GPActivityFacebook = @"GPActivityFacebook";
         [composeController addImage:image];
     }
     
-    UIViewController *presentingController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    presentingController.modalPresentationStyle = UIModalPresentationCurrentContext;
+//    UIViewController *presentingController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//    presentingController.modalPresentationStyle = UIModalPresentationCurrentContext;
     
     typeof(self) __weak weakSelf = self;
     typeof(composeController) __weak weakComposer = composeController;
@@ -70,7 +70,7 @@ NSString *const GPActivityFacebook = @"GPActivityFacebook";
         [weakSelf activityDidFinish:result == DEFacebookComposeViewControllerResultDone];
     };
     
-    [presentingController presentViewController:composeController animated:YES completion:nil];
+    [self.presenter presentViewController:composeController animated:YES completion:nil];
 }
 
 @end

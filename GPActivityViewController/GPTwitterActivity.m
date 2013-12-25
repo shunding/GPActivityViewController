@@ -78,8 +78,7 @@ NSString *const GPActivityTwitter = @"GPActivityTwitter";
         [composeController addURL:url];
     }
     
-    UIViewController *presentingController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    [presentingController presentModalViewController:composeController animated:YES];
+    [self.presenter presentModalViewController:composeController animated:YES];
 }
 
 - (NSString *)activityType {

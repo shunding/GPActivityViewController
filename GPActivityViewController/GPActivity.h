@@ -34,6 +34,8 @@ typedef void (^GPActivityActionHandler)(GPActivity *activity, NSDictionary *user
 
 @interface GPActivity : NSObject
 
+@property (nonatomic, assign) UIViewController *presenter;
+
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSDictionary *userInfo;
